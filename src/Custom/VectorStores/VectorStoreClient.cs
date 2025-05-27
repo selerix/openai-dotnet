@@ -37,6 +37,8 @@ namespace OpenAI.VectorStores;
 [CodeGenSuppress("ListFilesInVectorStoreBatch", typeof(string), typeof(string), typeof(int?), typeof(VectorStoreCollectionOrder?), typeof(string), typeof(string), typeof(VectorStoreFileStatusFilter?), typeof(CancellationToken))]
 public partial class VectorStoreClient
 {
+    private readonly string _apiVersion;
+
     // CUSTOM: Added as a convenience.
     /// <summary> Initializes a new instance of <see cref="VectorStoreClient"/>. </summary>
     /// <param name="apiKey"> The API key to authenticate with the service. </param>
@@ -68,6 +70,7 @@ public partial class VectorStoreClient
 
         Pipeline = OpenAIClient.CreatePipeline(credential, options);
         _endpoint = OpenAIClient.GetEndpoint(options);
+        _apiVersion = options.ApiVersion;
     }
 
     // CUSTOM:
@@ -85,6 +88,7 @@ public partial class VectorStoreClient
 
         Pipeline = pipeline;
         _endpoint = OpenAIClient.GetEndpoint(options);
+        _apiVersion = options.ApiVersion;
     }
 
     internal virtual CreateVectorStoreOperation CreateCreateVectorStoreOperation(ClientResult<VectorStore> result)

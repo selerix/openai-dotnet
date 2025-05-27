@@ -23,6 +23,10 @@ namespace OpenAI.Files
             ClientUriBuilder uri = new ClientUriBuilder();
             uri.Reset(_endpoint);
             uri.AppendPath("/files", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             request.Headers.Set("Content-Type", contentType);
@@ -44,6 +48,10 @@ namespace OpenAI.Files
             {
                 uri.AppendQuery("purpose", purpose, true);
             }
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -60,6 +68,10 @@ namespace OpenAI.Files
             uri.Reset(_endpoint);
             uri.AppendPath("/files/", false);
             uri.AppendPath(fileId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -76,6 +88,10 @@ namespace OpenAI.Files
             uri.Reset(_endpoint);
             uri.AppendPath("/files/", false);
             uri.AppendPath(fileId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -93,6 +109,10 @@ namespace OpenAI.Files
             uri.AppendPath("/files/", false);
             uri.AppendPath(fileId, true);
             uri.AppendPath("/content", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);

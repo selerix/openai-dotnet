@@ -39,6 +39,10 @@ namespace OpenAI.VectorStores
             {
                 uri.AppendQuery("before", before, true);
             }
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -54,6 +58,10 @@ namespace OpenAI.VectorStores
             ClientUriBuilder uri = new ClientUriBuilder();
             uri.Reset(_endpoint);
             uri.AppendPath("/vector_stores", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             request.Headers.Set("Content-Type", "application/json");
@@ -72,6 +80,10 @@ namespace OpenAI.VectorStores
             uri.Reset(_endpoint);
             uri.AppendPath("/vector_stores/", false);
             uri.AppendPath(vectorStoreId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -88,6 +100,10 @@ namespace OpenAI.VectorStores
             uri.Reset(_endpoint);
             uri.AppendPath("/vector_stores/", false);
             uri.AppendPath(vectorStoreId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             request.Headers.Set("Content-Type", "application/json");
@@ -106,6 +122,10 @@ namespace OpenAI.VectorStores
             uri.Reset(_endpoint);
             uri.AppendPath("/vector_stores/", false);
             uri.AppendPath(vectorStoreId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -143,6 +163,10 @@ namespace OpenAI.VectorStores
             {
                 uri.AppendQuery("filter", filter, true);
             }
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -160,6 +184,10 @@ namespace OpenAI.VectorStores
             uri.AppendPath("/vector_stores/", false);
             uri.AppendPath(vectorStoreId, true);
             uri.AppendPath("/files", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             request.Headers.Set("Content-Type", "application/json");
@@ -180,6 +208,10 @@ namespace OpenAI.VectorStores
             uri.AppendPath(vectorStoreId, true);
             uri.AppendPath("/files/", false);
             uri.AppendPath(fileId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -198,6 +230,10 @@ namespace OpenAI.VectorStores
             uri.AppendPath(vectorStoreId, true);
             uri.AppendPath("/files/", false);
             uri.AppendPath(fileId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -215,6 +251,10 @@ namespace OpenAI.VectorStores
             uri.AppendPath("/vector_stores/", false);
             uri.AppendPath(vectorStoreId, true);
             uri.AppendPath("/file_batches", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             request.Headers.Set("Content-Type", "application/json");
@@ -235,6 +275,10 @@ namespace OpenAI.VectorStores
             uri.AppendPath(vectorStoreId, true);
             uri.AppendPath("/file_batches/", false);
             uri.AppendPath(batchId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -254,6 +298,10 @@ namespace OpenAI.VectorStores
             uri.AppendPath("/file_batches/", false);
             uri.AppendPath(batchId, true);
             uri.AppendPath("/cancel", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -292,6 +340,10 @@ namespace OpenAI.VectorStores
             if (filter != null)
             {
                 uri.AppendQuery("filter", filter, true);
+            }
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
             }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");

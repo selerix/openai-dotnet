@@ -20,6 +20,7 @@ namespace OpenAI.Responses;
 public partial class OpenAIResponseClient
 {
     private readonly string _model;
+    private readonly string _apiVersion;
 
     // CUSTOM: Added as a convenience.
     /// <summary> Initializes a new instance of <see cref="OpenAIResponseClient"/>. </summary>
@@ -63,6 +64,7 @@ public partial class OpenAIResponseClient
         _model = model;
         Pipeline = OpenAIClient.CreatePipeline(credential, options);
         _endpoint = OpenAIClient.GetEndpoint(options);
+        _apiVersion = options.ApiVersion;
     }
 
     // CUSTOM:
@@ -85,6 +87,7 @@ public partial class OpenAIResponseClient
         _model = model;
         Pipeline = pipeline;
         _endpoint = OpenAIClient.GetEndpoint(options);
+        _apiVersion = options.ApiVersion;
     }
 
     public virtual async Task<ClientResult<OpenAIResponse>> CreateResponseAsync(IEnumerable<ResponseItem> inputItems, ResponseCreationOptions options = null, CancellationToken cancellationToken = default)

@@ -19,6 +19,7 @@ namespace OpenAI.Files;
 [CodeGenSuppress("RetrieveFile", typeof(string), typeof(CancellationToken))]
 public partial class OpenAIFileClient
 {
+    private readonly string _apiVersion;
     private InternalUploadsClient _internalUploadsClient;
 
     // CUSTOM: Added as a convenience.
@@ -53,6 +54,7 @@ public partial class OpenAIFileClient
 
         Pipeline = OpenAIClient.CreatePipeline(credential, options);
         _endpoint = OpenAIClient.GetEndpoint(options);
+        _apiVersion = options.ApiVersion;
         _internalUploadsClient = new(Pipeline, options);
     }
 
@@ -71,6 +73,7 @@ public partial class OpenAIFileClient
 
         Pipeline = pipeline;
         _endpoint = OpenAIClient.GetEndpoint(options);
+        _apiVersion = options.ApiVersion;
         _internalUploadsClient = new(pipeline, options);
     }
 

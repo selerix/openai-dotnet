@@ -24,6 +24,10 @@ namespace OpenAI.Responses
             ClientUriBuilder uri = new ClientUriBuilder();
             uri.Reset(_endpoint);
             uri.AppendPath("/responses", false);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", accept);
             request.Headers.Set("Content-Type", "application/json");
@@ -48,6 +52,10 @@ namespace OpenAI.Responses
                 {
                     uri.AppendQuery("include[]", @param, true);
                 }
+            }
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
             }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
@@ -82,6 +90,10 @@ namespace OpenAI.Responses
             {
                 uri.AppendQuery("before", before, true);
             }
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);
@@ -98,6 +110,10 @@ namespace OpenAI.Responses
             uri.Reset(_endpoint);
             uri.AppendPath("/responses/", false);
             uri.AppendPath(responseId, true);
+            if (_apiVersion != null)
+            {
+                uri.AppendQuery("api-version", _apiVersion, true);
+            }
             request.Uri = uri.ToUri();
             request.Headers.Set("Accept", "application/json");
             message.Apply(options);

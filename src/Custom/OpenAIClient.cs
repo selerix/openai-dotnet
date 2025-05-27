@@ -270,13 +270,16 @@ public partial class OpenAIClient
 
     internal static ClientPipeline CreatePipeline(ApiKeyCredential credential, OpenAIClientOptions options)
     {
+        var authorizationHeader = options?.AuthorizationHeader ?? AuthorizationHeader;
+        var authorizationApiKeyPrefix = options?.AuthorizationApiKeyPrefix ?? AuthorizationApiKeyPrefix;
+
         return ClientPipeline.Create(
             options,
             perCallPolicies: [
                 CreateAddCustomHeadersPolicy(options),
             ],
             perTryPolicies: [
-                ApiKeyAuthenticationPolicy.CreateHeaderApiKeyPolicy(credential, AuthorizationHeader, AuthorizationApiKeyPrefix)
+                ApiKeyAuthenticationPolicy.CreateHeaderApiKeyPolicy(credential, authorizationHeader, authorizationApiKeyPrefix)
             ],
             beforeTransportPolicies: [
             ]);
