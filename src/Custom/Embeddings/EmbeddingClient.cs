@@ -22,6 +22,7 @@ namespace OpenAI.Embeddings;
 public partial class EmbeddingClient
 {
     private readonly string _model;
+    private readonly string _apiVersion;
 
     // CUSTOM: Added as a convenience.
     /// <summary> Initializes a new instance of <see cref="EmbeddingClient"/>. </summary>
@@ -64,6 +65,7 @@ public partial class EmbeddingClient
 
         _model = model;
         Pipeline = OpenAIClient.CreatePipeline(credential, options);
+        _apiVersion = options.ApiVersion;
         _endpoint = OpenAIClient.GetEndpoint(options);
     }
 
@@ -86,6 +88,7 @@ public partial class EmbeddingClient
 
         _model = model;
         Pipeline = pipeline;
+        _apiVersion = options.ApiVersion;
         _endpoint = OpenAIClient.GetEndpoint(options);
     }
 
