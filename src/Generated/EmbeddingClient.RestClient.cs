@@ -22,7 +22,7 @@ namespace OpenAI.Embeddings
             request.Method = "POST";
             ClientUriBuilder uri = new ClientUriBuilder();
             uri.Reset(_endpoint);
-            uri.AppendPath("/embeddings", false);
+            uri.AppendPath($"/deployments/{_model}/embeddings", false);            
             if (_apiVersion != null)
             {
                 uri.AppendQuery("api-version", _apiVersion, true); 
